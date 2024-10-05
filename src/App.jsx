@@ -207,24 +207,23 @@ function ChatBot() {
 
 
   const predictServiceID = (responses) => {
-    // Example prediction logic
     if (responses[0] === "K-Style" && responses[1] === "Install") {
-      return 100; // Service ID for Gutters with K-Style and Aluminum
+      return 100; 
     } else if (responses[0] === "K-Style" && responses[1] === "Repair") {
-      return 102; // Adjust Service ID based on other responses
+      return 102; 
     }else if (responses[0] === "Half-Round" && responses[1] === "Install") {
-      return 103; // Adjust Service ID based on other responses
+      return 103; 
     }else if (responses[0] === "Half-Round" && responses[1] === "Repair") {
-      return 104; // Adjust Service ID based on other responses
+      return 104; 
     }else if (responses[0] === "Box" && responses[1] === "Install") {
-      return 105; // Adjust Service ID based on other responses
+      return 105; 
     }else if (responses[0] === "Box" && responses[1] === "Repair") {
-      return 106; // Adjust Service ID based on other responses
+      return 106; 
     }else if (responses[0] === "Half-Round" && responses[1] === "Copper") {
-      return 107; // Adjust Service ID based on other responses
+      return 107;
     }
-    // Add more conditions based on your logic for other services
-    return null; // Default case if no match found
+    
+    return null; 
   };
   const handleOptionSelect = useCallback((option) => {
     if (currentService) {
@@ -244,9 +243,9 @@ function ChatBot() {
         ]);
         setCurrentStep(nextStep);
       } else {
-        // Predict Service ID based on user responses
+        
         const predictedServiceID = predictServiceID(userResponses);
-        setCurrentService((prev) => ({ ...prev, predictedServiceID })); // Store predicted Service ID in currentService
+        setCurrentService((prev) => ({ ...prev, predictedServiceID })); 
   
         setIsCollectingUserInfo(true);
         setChatHistory((prev) => [
@@ -375,7 +374,6 @@ function ChatBot() {
           </button>
         </div>
 
-        {/* Draggable Chat Button */}
         <button
           draggable
           onDragStart={handleDragStart}
@@ -401,7 +399,6 @@ function ChatBot() {
           <div className="h-96 overflow-y-auto p-4">
             {chatHistory.map(renderChatMessage)}
 
-            {/* Input for collecting name, email, and address */}
             {isCollectingUserInfo && (
               <div className="p-2">
                 <input
@@ -418,20 +415,11 @@ function ChatBot() {
               </div>
             )}
 
-            {/* Displaying collected user information */}
-            {/* {isDisplayingUserDetails && (
-              <div className="p-4 border-t border-gray-300 mt-4">
-                <h4 className="font-bold">Your Details</h4>
-                <p>Name: {userData.name}</p>
-                <p>Email: {userData.email}</p>
-                <p>Address: {userData.address}</p>
-              </div>
-            )} */}
+            
           </div>
         </div>
       )}
 
-      {/* Displaying Final Application Form */}
       {isShowingSummaryForm && (
         <div className="w-full max-w-md mt-4 bg-white rounded-lg shadow-md p-6">
           <h3 className="text-xl font-bold mb-4">Application Form Summary</h3>
